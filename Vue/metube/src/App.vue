@@ -2,8 +2,8 @@
   <div id="app">
     <h1>METUBE</h1>
     <SearchBar @search-video="searchVideo"/>
-    <VideoList :videolist="videolist"/>
-    <VideoPlay/>
+    <VideoList :videoList="videoList" @on-click-video="onClickVideo"/>
+    <VideoPlay :selectedVideo="selectedVideo"/>
   </div>
 </template>
 
@@ -19,15 +19,18 @@ export default {
     SearchBar,
     VideoPlay
   },
-  data: function () {
+  data() {
     return {
-      videolist: [],
+      videoList: [],
+      selectedVideo: null,
     }
   },
   methods: {
-    searchVideo: function (videoList) {
-      this.videolist = videoList
-      // console.log(videoList)
+    searchVideo(videoList) {
+      this.videoList = videoList
+    },
+    onClickVideo(video) {
+      this.selectedVideo = video
     }
   }
 }

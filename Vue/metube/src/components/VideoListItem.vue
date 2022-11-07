@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="listItem" @click="onClickVideo">
     <img :src="thumbUrl" alt="">
     <h3>{{ videoTitle | unescape }}</h3>
     <p>{{ videoDesc }}</p>
@@ -8,14 +8,15 @@
 
 <script>
 import _ from 'lodash'
+
 export default {
     name: 'VideoListItem',
     props: { 
-        video: Object
+        video: Object,
     },
     computed: {
         videoTitle() {
-            console.log(this.video)
+            // console.log(this.video)
             return this.video.snippet.title
         },
         videoDesc() {
@@ -30,9 +31,16 @@ export default {
             return _.unescape(rawText)
         }
     },
+    methods: {
+        onClickVideo() {
+            this.$emit('on-click-video', this.video)
+        }
+    }
 }
 </script>
 
 <style>
-
+.listItem{
+    border: 2px solid orange;
+}
 </style>

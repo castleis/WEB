@@ -1,9 +1,10 @@
 <template>
-  <div v-if="videolist.length">
+  <div id="list">
     <VideoListItem 
-      v-for="video in videolist"
-      :video="video"
+      v-for="video in videoList"
       :key="video.id.videoId"
+      :video="video"
+      @on-click-video="onClickVideo"
     />
   </div>
 </template>
@@ -16,7 +17,12 @@ export default {
       VideoListItem
     },
     props: {
-      videolist: Array
+      videoList: Array
+    },
+    methods: {
+      onClickVideo() {
+        this.$emit('on-click-video', this.video)
+      }
     }
 }
 </script>

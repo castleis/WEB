@@ -17,7 +17,7 @@ export default {
         const keyword = event.target.value
         const config = {
           params: {
-            zxpart: 'snippet',
+            part: 'snippet',
             type: 'video',
             q: keyword,
             key: YOUTUBE_API_KEY,
@@ -26,7 +26,6 @@ export default {
         // console.log(config)
         const response = await axios.get(YOUTUBE_API_URL, config)
         const videoList = response.data.items
-        console.log(videoList)
         this.$emit('search-video', videoList)
       }
     }
