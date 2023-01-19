@@ -1,0 +1,1 @@
+{"name":"todoApp","version":"0.0.1","private":true,"scripts":{"start":"node node_modules/react-native/local-cli/cli.js start"},"dependencies":{"react-native":"0.71.0"},"devDependencies":{"@types/react":"^18.0.27","@types/react-native":"^0.71.0","typescript":"^4.9.4"}}
