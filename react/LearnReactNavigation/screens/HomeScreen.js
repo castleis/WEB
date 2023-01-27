@@ -2,6 +2,10 @@ import React from 'react'
 import {View, Button} from 'react-native'
 
 function HomeScreen({navigation}) {
+    // useEffect Hook을 사용해서 헤더 커스터마이징 하기! - Home 화면의 타이틀 텍스트 바꾸기
+    useEffect(() => {
+        navigation.setOptions({title: '홈'})
+    }, [navigation])
     return (
         <View>
             <Button 
